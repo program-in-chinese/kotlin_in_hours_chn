@@ -37,7 +37,7 @@ Kotlin入门代码用中文写更能被新手理解, 可惜没有看到类似教
 
 新建文本文件,命名为"问好.kt".输入最简单的一个Kotlin程序:
 
-```
+```kotlin
 fun main(参数: Array<String>) {
     // 待续: 要让它做的事
 }
@@ -48,7 +48,7 @@ fun main(参数: Array<String>) {
 
 这个程序可以编译运行(见"手把手"部分),但运行后没有任何输出.因为这个程序是个空架子,没有任何可以看到的运行结果.下面就让它做点事.
 
-```
+```kotlin
 fun main(参数: Array<String>) {
     // 要让它做的事
     println("吃了么");
@@ -97,7 +97,7 @@ $ java -jar 问好.jar
 ## 四 算术
 
 新建文件"四则运算.kt"
-```
+```kotlin
 fun main(参数: Array<String>) {
     println(1+2);
 }
@@ -108,7 +108,7 @@ fun main(参数: Array<String>) {
 恭喜! 你已经可以用Kotlin程序完成数学运算了.
 
 那么其他的运算呢? 新建文件"根号.kt"
-```
+```kotlin
 fun main(参数: Array<String>) {
     println(Math.sqrt(4.0));
 }
@@ -117,16 +117,16 @@ fun main(参数: Array<String>) {
 应该不用啰嗦了,试试把`4.0`改成其他的数,看看结果如何?
 
 现在,你可能已经觉得程序的"回答"太"精简"和生硬了,那么人性化一些吧,下面开始只列出main方法内的代码
-```
+```kotlin
     println("4的平方根是" + Math.sqrt(4));
 ```
 输出听起来顺耳些了,但如果想要把4改成其他数,需要改程序的两个地方,这种麻烦可要不得! 可以把4先存到一个变量里,然后在两处引用同一个变量:
-```
+```kotlin
     val 数 = 4.0;
     println("${数}的平方根是" + Math.sqrt(数));
 ```
 这样只要改一处了.不过,为了改输入值,还是要改程序,再编译再运行,这种麻烦可要不得! "参数"终于派上用场了.
-```
+```kotlin
     val 数 = 参数[0].toDouble();
     println("${数}的平方根是" + Math.sqrt(数));
 ```
@@ -146,7 +146,7 @@ Math是Kotlin自带标准库中的数学类,包含很多有用的方法.详细�
 
 标准库有很多有用的类. 比如随机数, 用在很多聊天机器人上.
 新建"随机数生成器.kt":
-```
+```kotlin
 fun main (参数: Array<String>) {
     val 生成器 = java.util.Random();
     println("我想到的数字是:" + 生成器.nextInt());
@@ -165,7 +165,7 @@ nextInt是产生一个随机数的方法. 为什么Math.sqrt不用new出一个�
 `val`意味着这个变量是无法修改的, 也就是说无法被重新赋值. 如果需要一个"真正"的变量, 就是它可以真正被修改/赋值, 那么就用`var`
 
 Kotlin中还有其他几种基本变量: Boolean, Char, Byte, Short, Long, Float, Double
-```
+```kotlin
     val 年纪尚幼: Boolean = true; // true或false,真或假
     val 姓: Char = '好'; // 单个字符
     val 年龄: Byte = 27; // 字节: -128到127, 即-2^7到(2^7-1)
@@ -180,7 +180,7 @@ Kotlin中还有其他几种基本变量: Boolean, Char, Byte, Short, Long, Float
 上一讲的四则运算类中,已经尝试了4种运算符. 变量运算的结果可以赋给自己,或者另一个变量.
 
 举个例子, 如2岁的时候认识一个字，每年增加两倍, 3年之后会变成多少.下面是一个很直白的计算方法:
-```
+```kotlin
 fun main (参数: Array<String>) {
     var 识字量: Int = 1;
     val 每年增倍数: Int = 2;
